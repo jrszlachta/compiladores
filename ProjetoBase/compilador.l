@@ -10,7 +10,7 @@
 //#define IMPRIME(STR) {};
 #define IMPRIME(STR) printf("%s    # %s \n", STR, token);
 
-int nl = 1;  
+int nl = 1;
 
 %}
 
@@ -26,19 +26,19 @@ comentario "(*".*"*)"
 
 %%
 
-{pulo_linha} {nl++;} 
+{pulo_linha} {nl++;}
 
 {descarte}
 
 {comentario}
 
-program { simbolo  = simb_program;  
+program { simbolo  = simb_program;
           strncpy (token, yytext, TAM_TOKEN);
           IMPRIME("program ");
           return PROGRAM;
  }
 
-var      { simbolo = simb_var;  
+var      { simbolo = simb_var;
           strncpy (token, yytext, TAM_TOKEN);
           IMPRIME("var  ");
           return VAR;
@@ -56,55 +56,198 @@ end { simbolo = simb_end;
           return T_END;
  }
 
-:= { simbolo = simb_atribuicao;  
+:= { simbolo = simb_atribuicao;
           strncpy (token, yytext, TAM_TOKEN);
           IMPRIME(" atribuicao  ");
-          return ATRIBUICAO;  
+          return ATRIBUICAO;
  }
 
-\; { simbolo = simb_ponto_e_virgula;  
+\; { simbolo = simb_ponto_e_virgula;
           strncpy (token, yytext, TAM_TOKEN);
           IMPRIME(" pt_virgula  ");
           return PONTO_E_VIRGULA;
  }
 
-\: { simbolo = simb_dois_pontos;  
+\: { simbolo = simb_dois_pontos;
           strncpy (token, yytext, TAM_TOKEN);
           IMPRIME(" dois pontos ");
           return DOIS_PONTOS;
  }
 
-\, { simbolo = simb_virgula;  
+\, { simbolo = simb_virgula;
           strncpy (token, yytext, TAM_TOKEN);
           IMPRIME(" virgula  ");
           return VIRGULA;
  }
 
 
-\. { simbolo = simb_ponto;  
+\. { simbolo = simb_ponto;
           strncpy (token, yytext, TAM_TOKEN);
           IMPRIME(" ponto  ");
-          return PONTO; 
+          return PONTO;
     }
 
-\(  { simbolo = simb_abre_parenteses;  
+\(  { simbolo = simb_abre_parenteses;
           strncpy (token, yytext, TAM_TOKEN);
           IMPRIME(" abre_parenteses  ");
           return ABRE_PARENTESES;
     }
 
-\)  { simbolo = simb_fecha_parenteses;  
+\)  { simbolo = simb_fecha_parenteses;
           strncpy (token, yytext, TAM_TOKEN);
           IMPRIME(" fecha_parenteses ");
           return FECHA_PARENTESES;
  }
 
-{ident} { simbolo = simb_identificador; 
+{ident} { simbolo = simb_identificador;
           strncpy (token, yytext, TAM_TOKEN);
           IMPRIME(" ident  ");
           return IDENT;
         }
 
+label { simbolo = simb_label;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("label ");
+		return LABEL;
+	}
+
+type { simbolo = simb_type;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("type ");
+		return TYPE;
+	}
+
+array { simbolo = simb_array;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("array ");
+		return ARRAY;
+	}
+
+procedure { simbolo = simb_procedure;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("procedure ");
+		return PROCEDURE;
+	}
+
+function { simbolo = simb_function;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("function ");
+		return FUNCTION;
+	}
+
+goto { simbolo = simb_goto;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("goto ");
+		return GOTO;
+	}
+
+if { simbolo = simb_if;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("if ");
+		return IF;
+	}
+
+then { simbolo = simb_then;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("then ");
+		return THEN;
+	}
+
+else { simbolo = simb_else;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("else ");
+		return ELSE;
+	}
+
+while { simbolo = simb_while;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("while ");
+		return WHILE;
+	}
+
+do { simbolo = simb_do;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("do ");
+		return DO;
+	}
+
+or { simbolo = simb_or;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" or ");
+		return OR;
+	}
+
+and { simbolo = simb_and;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" and ");
+		return AND;
+	}
+
+not { simbolo = simb_not;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME("not ");
+		return NOT;
+	}
+
+"+" { simbolo = simb_plus;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" + ");
+		return PLUS;
+	}
+
+"-" { simbolo = simb_minus;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" - ");
+		return MINUS;
+	}
+
+"*" { simbolo = simb_times;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" * ");
+		return TIMES;
+	}
+
+"/" { simbolo = simb_div;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" / ");
+		return DIV;
+	}
+
+"=" { simbolo = simb_equals;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" = ");
+		return EQUALS;
+	}
+
+">" { simbolo = simb_greater;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" > ");
+		return GREATER;
+	}
+
+"<" { simbolo = simb_less;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" < ");
+		return LESS;
+	}
+
+">=" { simbolo = simb_greater_equal;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" >= ");
+		return GREATER_EQUAL;
+	}
+
+"<=" { simbolo = simb_less_equal;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" <= ");
+		return LESS_EQUAL;
+	}
+
+"<>" { simbolo = simb_not_equal;
+		strncpy(token, yytext, TAM_TOKEN);
+		IMPRIME(" <> ");
+		return NOT_EQUAL;
+	}
 
 %%
 
