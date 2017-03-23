@@ -111,10 +111,10 @@ label { simbolo = simb_label;
 		return LABEL;
 	}
 
-type { simbolo = simb_type;
+type { simbolo = simb_tipo;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME("type ");
-		return TYPE;
+		return TIPO;
 	}
 
 array { simbolo = simb_array;
@@ -189,22 +189,22 @@ not { simbolo = simb_not;
 		return NOT;
 	}
 
-"+" { simbolo = simb_plus;
+"+" { simbolo = simb_mais;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" + ");
-		return PLUS;
+		return MAIS;
 	}
 
-"-" { simbolo = simb_minus;
+"-" { simbolo = simb_menos;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" - ");
-		return MINUS;
+		return MENOS;
 	}
 
-"*" { simbolo = simb_times;
+"*" { simbolo = simb_asteriscoO;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" * ");
-		return TIMES;
+		return ASTERISCO;
 	}
 
 "/" { simbolo = simb_div;
@@ -213,40 +213,40 @@ not { simbolo = simb_not;
 		return DIV;
 	}
 
-"=" { simbolo = simb_equals;
+"=" { simbolo = simb_igual;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" = ");
-		return EQUALS;
+		return IGUAL;
 	}
 
-">" { simbolo = simb_greater;
+">" { simbolo = simb_maior;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" > ");
-		return GREATER;
+		return MAIOR;
 	}
 
-"<" { simbolo = simb_less;
+"<" { simbolo = simb_menor;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" < ");
-		return LESS;
+		return MENOR;
 	}
 
-">=" { simbolo = simb_greater_equal;
+">=" { simbolo = simb_maior_igual;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" >= ");
-		return GREATER_EQUAL;
+		return MAIOR_IGUAL;
 	}
 
-"<=" { simbolo = simb_less_equal;
+"<=" { simbolo = simb_menor_igual;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" <= ");
-		return LESS_EQUAL;
+		return MENOR_IGUAL;
 	}
 
-"<>" { simbolo = simb_not_equal;
+"<>" { simbolo = simb_diferente;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" <> ");
-		return NOT_EQUAL;
+		return DIFERENTE;
 	}
 
 %%
