@@ -18,6 +18,12 @@ typedef enum simbolos {
   simb_identificador, simb_numero,
   simb_ponto, simb_virgula, simb_ponto_e_virgula, simb_dois_pontos,
   simb_atribuicao, simb_abre_parenteses, simb_fecha_parenteses,
+  simb_identificador, simb_label, simb_tipo, simb_array,
+  simb_procedure, simb_function, simb_goto, simb_if, simb_then,
+  simb_else, simb_while, simb_do, simb_or, simb_and, simb_not,
+  simb_mais, simb_menos, simb_asterisco, simb_div, simb_igual,
+  simb_maior, simb_menor, simb_maior_igual, simb_menor_igual,
+  simb_diferente
 } simbolos;
 
 

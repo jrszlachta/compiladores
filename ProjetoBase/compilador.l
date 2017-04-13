@@ -99,12 +99,6 @@ end { simbolo = simb_end;
           return FECHA_PARENTESES;
  }
 
-{ident} { simbolo = simb_identificador;
-          strncpy (token, yytext, TAM_TOKEN);
-          IMPRIME(" ident  ");
-          return IDENT;
-        }
-
 label { simbolo = simb_label;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME("label ");
@@ -201,13 +195,13 @@ not { simbolo = simb_not;
 		return MENOS;
 	}
 
-"*" { simbolo = simb_asteriscoO;
+"*" { simbolo = simb_asterisco;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" * ");
 		return ASTERISCO;
 	}
 
-"/" { simbolo = simb_div;
+div { simbolo = simb_div;
 		strncpy(token, yytext, TAM_TOKEN);
 		IMPRIME(" / ");
 		return DIV;
@@ -248,6 +242,12 @@ not { simbolo = simb_not;
 		IMPRIME(" <> ");
 		return DIFERENTE;
 	}
+
+{ident} { simbolo = simb_identificador;
+          strncpy (token, yytext, TAM_TOKEN);
+          IMPRIME(" ident  ");
+          return IDENT;
+        }
 
 %%
 
