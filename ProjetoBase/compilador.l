@@ -179,67 +179,67 @@ and { simbolo = simb_and;
 
 not { simbolo = simb_not;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME("not ");
+		IMPRIME(" not ");
 		return NOT;
 	}
 
 "+" { simbolo = simb_mais;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME(" + ");
+		IMPRIME(" soma ");
 		return MAIS;
 	}
 
 "-" { simbolo = simb_menos;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME(" - ");
+		IMPRIME(" subtracao ");
 		return MENOS;
 	}
 
 "*" { simbolo = simb_asterisco;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME(" * ");
+		IMPRIME(" asterisco ");
 		return ASTERISCO;
 	}
 
 div { simbolo = simb_div;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME(" / ");
+		IMPRIME(" div ");
 		return DIV;
 	}
 
 "=" { simbolo = simb_igual;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME(" = ");
+		IMPRIME(" igual ");
 		return IGUAL;
 	}
 
 ">" { simbolo = simb_maior;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME(" > ");
+		IMPRIME("maior ");
 		return MAIOR;
 	}
 
 "<" { simbolo = simb_menor;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME(" < ");
+		IMPRIME(" menor ");
 		return MENOR;
 	}
 
 ">=" { simbolo = simb_maior_igual;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME(" >= ");
+		IMPRIME(" maior_igual ");
 		return MAIOR_IGUAL;
 	}
 
 "<=" { simbolo = simb_menor_igual;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME(" <= ");
+		IMPRIME(" menor_igual ");
 		return MENOR_IGUAL;
 	}
 
 "<>" { simbolo = simb_diferente;
 		strncpy(token, yytext, TAM_TOKEN);
-		IMPRIME(" <> ");
+		IMPRIME(" diferente ");
 		return DIFERENTE;
 	}
 
