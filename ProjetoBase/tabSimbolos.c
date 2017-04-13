@@ -1,5 +1,6 @@
 #include "tamSimbolos.h"
 
+// Função para buscar um simbolo na TS usando um token
 tSimbolo buscaTS(char * token, lista l){
   no n = primeiro_no(l);
   tSimbolo t;
@@ -12,7 +13,7 @@ tSimbolo buscaTS(char * token, lista l){
   return NULL;
 }
 
-//TODO: Comentar
+// Cria um novo símbolo para posteriormente inserir na TS
 tSimbolo newSimbolo(char * token){
   tSimbolo t = malloc(sizeof(struct tSimbolo));
   if(!t)
@@ -24,4 +25,11 @@ tSimbolo newSimbolo(char * token){
   }
   strcpy(t->name,token);
   return t;
+}
+
+void insereTabSimbVS(tSimbolo s, int nivelLex, int desl, int vType, lista l){
+  s->nl = nivelLex;
+  s->deloc = dels;
+  s->varType = vType;
+  insere(s,l);
 }

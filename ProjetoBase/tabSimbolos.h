@@ -18,7 +18,7 @@ struct tSimbolo{
 };
 
 tSimbolo buscaTS(char * token, lista l);
-void insereTabSimbVS(tSimbolo s, int nl, int desloc, int varType);
-tSimbolo newSimbolo(char * token, int type);
+tSimbolo newSimbolo(char * token);
+void insereTabSimbVS(tSimbolo s, int nivelLex, int desl, int vType, lista l);
 void destroySimbolo(tSimbolo s);
 // void insereTabSimb[TIPO](...);
