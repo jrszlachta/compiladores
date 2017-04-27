@@ -13,8 +13,15 @@
 
 #define TAM_TOKEN 16
 
-typedef enum simbolos { 
-  simb_program, simb_var, simb_begin, simb_end, 
+#define VARSIMPLES		1
+#define PROCEDIMENTO	2
+#define FUNCAO			3
+#define PARFORMAL		4
+#define ROTULO			5
+
+
+typedef enum simbolos {
+  simb_program, simb_var, simb_begin, simb_end,
   simb_identificador, simb_numero,
   simb_ponto, simb_virgula, simb_ponto_e_virgula, simb_dois_pontos,
   simb_atribuicao, simb_abre_parenteses, simb_fecha_parenteses,
@@ -42,5 +49,5 @@ extern int nl;
 simbolos simbolo, relacao;
 char token[TAM_TOKEN];
 
-
-
+// temp
+int nivel_lexico;

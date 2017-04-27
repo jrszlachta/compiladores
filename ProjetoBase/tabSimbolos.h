@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "compilador.h"
 #include "lista.h"
 
-#define VARSIMPLES 1
+//#define VARSIMPLES 1
 //#define [TIPO] 2
 //#define ...
 
