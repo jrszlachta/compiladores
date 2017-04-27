@@ -24,42 +24,48 @@ int num_vars;
 
 %%
 
-programa    :{ 
-             geraCodigo (NULL, "INPP"); 
+programa    :{
+             geraCodigo (NULL, "INPP");
              }
-             PROGRAM IDENT 
+             PROGRAM IDENT
              ABRE_PARENTESES lista_idents FECHA_PARENTESES PONTO_E_VIRGULA
              bloco PONTO {
-             geraCodigo (NULL, "PARA"); 
+             geraCodigo (NULL, "PARA");
              }
 ;
 
-bloco       : 
+bloco       : parte_declara_rotulos
               parte_declara_vars
-              { 
+              parte_declara_procedimentos
+              {
               }
 
-              comando_composto 
+              comando_composto
               ;
 
 
 
 
-parte_declara_vars:  var 
+parte_declara_vars:  var
 ;
 
+parte_declara_rotulos:
+;
+
+parte_declara_procedimentos:
+;
 
 var         : { } VAR declara_vars
             |
 ;
 
-declara_vars: declara_vars declara_var 
-            | declara_var 
+declara_vars: declara_vars declara_var
+            | declara_var
 ;
 
-declara_var : { } 
-              lista_id_var DOIS_PONTOS 
-              tipo 
+declara_var : { }
+              lista_id_var DOIS_PONTOS
+              tipo
               { /* AMEM */
               }
               PONTO_E_VIRGULA
@@ -68,19 +74,19 @@ declara_var : { }
 tipo        : IDENT
 ;
 
-lista_id_var: lista_id_var VIRGULA IDENT 
+lista_id_var: lista_id_var VIRGULA IDENT
               { /* insere última vars na tabela de símbolos */ }
             | IDENT { /* insere vars na tabela de símbolos */}
 ;
 
-lista_idents: lista_idents VIRGULA IDENT  
+lista_idents: lista_idents VIRGULA IDENT
             | IDENT
 ;
 
 
-comando_composto: T_BEGIN comandos T_END 
+comando_composto: T_BEGIN comandos T_END
 
-comandos:    
+comandos:
 ;
 
 
